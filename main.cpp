@@ -5,36 +5,23 @@ using namespace std;
 
 struct Location
 {
-    int xCoord;
-    int yCoord;
+    int xCoord; //to hold x coordinate
+    int yCoord; //to hold y coordinate
 
-    //Will generate a random position and pass it
-    //to the class' constructors to set the position
-    //for the monster
-    Location setLocation();
+    Location moveLocation(Location); //to move the players and monsters through the array
 };
 
 class Player
 {
 private:
 
-    string name;
     Location p;
 
 public:
 
-    Player()
-    {
-        //starting location of player will eventually be hard-coded
-        //so they will start at the same place on each level
-        p.xCoord = 0;
-        p.yCoord = 0;
-    }
-
-    //Will allow the user to move the player
-    void movePlayer();
-    void setLocation(int x, int y);
-    Location getLocation() { return p; }
+    void movePlayer(); //will allow the user to move the player
+    void setLocation(int x, int y); //sets private variables
+    Location getLocation() { return p; } //returns private variables
 };
 
 class Monster
@@ -49,43 +36,30 @@ public:
     //but each monster will move a different distance in
     //the direction that the player moves
     virtual void monsterMove(int x, int y);
+    //to set the location of the respective monster
     virtual void setLocation(int x, int y);
-    virtual Location getLocation()
-    {
-        x.xCoord = 0;
-        x.yCoord = 0;
-        return x;
-    }
-
+    //to return the location of the respective monster
+    virtual Location getLocation();
 };
 
 class Zombie : Monster
 {
 private:
 
-    string name = "Zombie";
-    char *zPtr = nullptr;
     Location z;
 
 public:
 
-    Zombie()
-    {
-        //Will eventually be set to starting position of zombie on map
-        z.xCoord = 0;
-        z.yCoord = 0;
-    }
-
     //will be overridden
     void monsterMove();
 
-    void setLocation(int x, int y)
+    void setLocation(int x, int y) //to set private variables
     {
         z.xCoord = x;
         z.yCoord = y;
     }
 
-    Location getLocation(){ return z; }
+    Location getLocation(){ return z; } //to return private variables
 
 };
 
@@ -93,29 +67,20 @@ class Witch : Monster
 {
 private:
 
-    string name = "Witch";
-    char *wPtr = nullptr;
     Location w;
 
 public:
 
-    Witch()
-    {
-        //Will eventually be set to starting position of zombie on map
-        w.xCoord = 0;
-        w.yCoord = 0;
-    }
-
     //will be overridden
     void monsterMove();
 
-    void setLocation(int x, int y)
+    void setLocation(int x, int y) //to set private variables
     {
         w.xCoord = x;
         w.yCoord = y;
     }
 
-    Location getLocation() { return w; }
+    Location getLocation() { return w; } //to return private variables
 
 };
 
@@ -123,40 +88,28 @@ class Horseman : Monster
 {
 private:
 
-    string name = "Horseman";
-    char *hPtr = nullptr;
     Location h;
 
 public:
 
-    Horseman()
-    {
-        //Will eventually be set to starting position of zombie on map
-        h.xCoord = 0;
-        h.yCoord = 0;
-    }
+    //will be overridden
+    void monsterMove();
 
-    void monsterMove()
-    {
-        /*Will be overridden so that the horseman moves a different
-        * distance than the other monsters */
-    }
-
-    void setLocation(int x, int y)
+    void setLocation(int x, int y) //to set private variables
     {
         h.xCoord = x;
         h.yCoord = y;
     }
 
-    Location getLocation() { return h; }
+    Location getLocation() { return h; } //to return private variables
 
 };
 
 class Object
 {
 public:
-    virtual void setLocation(int x, int y) { }
-    virtual Location getLocation();
+    virtual void setLocation(int x, int y); //to initialize private variables to location of object
+    virtual Location getLocation(); //to return location of object
 
 };
 
@@ -165,21 +118,16 @@ class Pumpkin : Object
 private:
 
     Location p;
-    char *pPtr = nullptr;
 
 public:
 
-    void setLocation(int x, int y)
+    void setLocation(int x, int y) //set private varibles
     {
         p.xCoord = x;
         p.yCoord = y;
     }
 
-    /*Location getLocation()
-    {
-        //this function will return the position
-        //of the object (unique to each object)
-    }*/
+    Location getLocation() { return p; } //return private variables
 };
 
 class Lantern : Object
@@ -187,20 +135,15 @@ class Lantern : Object
 private:
 
     Location l;
-    char *lPtr = nullptr;
 
 public:
 
-    void setLocation(int x, int y)
+    void setLocation(int x, int y) //set private variables
     {
         l.xCoord = x;
         l.yCoord = y;
     }
-    /*Location getLocation()
-    {
-        //This function will return the location of the
-        //object (unique to each object)
-    }*/
+    Location getLocation() { return l; } //return private variables
 };
 
 class Candy : Object
@@ -208,21 +151,16 @@ class Candy : Object
 private:
 
     Location c;
-    char *cPtr = nullptr;
 
 public:
 
-    void setLocation(int x, int y)
+    void setLocation(int x, int y) //set private variables
     {
         c.xCoord = x;
         c.yCoord = y;
     }
 
-    /*Location getLocation()
-    {
-        //This function will return the location of the
-        //object (unique to each object)
-    }*/
+    Location getLocation() { return c; } //return private variables
 };
 
 int main()
