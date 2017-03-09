@@ -163,6 +163,8 @@ public:
     Location getLocation() { return c; } //return private variables
 };
 
+void print(char[12][30]);
+void play(char[12][30]);
 int main()
 {
     int userInput;
@@ -207,6 +209,14 @@ int main()
     }
 
     //print
+    print(gameArray);
+    play(gameArray);
+
+    is.close();
+}
+
+void print(char gameArray[12][30])
+{
     for(int i = 0; i < 12; i++)
     {
         for(int k = 0; k < 30; k++)
@@ -215,5 +225,9 @@ int main()
         }
         cout << endl;
     }
-    is.close();
+}
+
+void play(char gameArray[12][30])
+{
+    return;
 }
