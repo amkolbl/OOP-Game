@@ -228,6 +228,8 @@ public:
 int main()
 {
     int userInput;
+    char gameArray[12][30];
+
 
     cout << "Halloween Game" << endl;
     cout << "Enter 1 to play, 2 for instructions, or 3 to quit." << endl;
@@ -258,5 +260,22 @@ int main()
         return 0;
     }
 
+    for(int i = 0; i < 12; i++)
+    {
+        for(int k = 0; k < 30; k++)
+        {
+            is >> gameArray[i][k];
+        }
+    }
+
+    //print
+    for(int i = 0; i < 12; i++)
+    {
+        for(int k = 0; k < 30; k++)
+        {
+            cout << gameArray[i][k];
+        }
+        cout << endl;
+    }
     is.close();
 }
