@@ -1,68 +1,57 @@
 #ifndef OBJECT_H_INCLUDED
 #define OBJECT_H_INCLUDED
+/* 
+		AnnMarie Kolbl
+ID: 3079881 | ak192@zips.uakron.edu
+OOP Final Project: Halloween Game
+		<object.h>
+*/
 #include "location.h"
 
 using namespace std;
 class Object
 {
+private:
+	Location location;
+	
 public:
-    virtual void setLocation(int x, int y) { }
+    virtual void setLocation(int, int);
     virtual Location getLocation();
 
 };
 
-class Pumpkin : Object
+void Object::setLocation(int x, int y)
 {
-private:
+	location.xCoord = x;
+	location.yCoord = y;	
+}
 
-    Location p;
-
-public:
-
-    void setLocation(int x, int y)
-    {
-        p.xCoord = x;
-        p.yCoord = y;
-    }
-
-    Location getLocation()
-        { return p; }
-};
-
-class Lantern : Object
+Location Object::getLocation()
 {
-private:
+	return location;
+}
 
-    Location l;
-
-public:
-
-    void setLocation(int x, int y)
-    {
-        l.xCoord = x;
-        l.yCoord = y;
-    }
-    Location getLocation()
-        { return l; }
-};
 
 class Candy : Object
 {
 private:
-
-    Location c;
-
-public:
-
-    void setLocation(int x, int y)
-    {
-        c.xCoord = x;
-        c.yCoord = y;
-    }
-
-    Location getLocation()
-        { return c; }
+    Location location;
 };
 
+
+class Pumpkin : Object
+{
+private:
+    Location location;
+};
+
+
+/*
+class Lantern : Object
+{
+private:
+	Location location;
+};
+*/
 
 #endif // OBJECT_H_INCLUDED
